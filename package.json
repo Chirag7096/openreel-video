@@ -5,9 +5,11 @@
   "description": "Professional video, audio, and photo editing in your browser",
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @openreel/web dev",
+    "dev": "node api.js && pnpm --filter @openreel/web dev",
     "build:wasm": "pnpm --filter @openreel/core build:wasm",
-    "build": "pnpm build:wasm && pnpm --filter @openreel/web build",
+    "build": "node api.js && pnpm build:wasm && pnpm --filter @openreel/web build",
+    "build:render": "pnpm build",
+    "start:render": "pnpm --filter @openreel/web start:render",
     "preview": "pnpm --filter @openreel/web preview",
     "deploy": "pnpm build && pnpm --filter @openreel/web deploy",
     "deploy:preview": "pnpm build && pnpm --filter @openreel/web deploy:preview",
